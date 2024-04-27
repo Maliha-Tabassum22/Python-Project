@@ -1,5 +1,5 @@
 class Hall:
-    def _init_(self, row, col, hallNo):
+    def __init__(self, row, col, hallNo):
         self.__seats = {}
         self.__show_list = []
         self.__row = row
@@ -58,7 +58,7 @@ class StarCinema:
         return None
 
 hallA = Hall(row=5, col=5, hallNo=1)
-hallA = Hall(row=5, col=5, hallNo=2)
+hallB = Hall(row=5, col=5, hallNo=2)
 
 hallA.entry_show(id='101', movie_name='Superman', time='8:00 PM')
 hallA.entry_show(id='102', movie_name='Spiderman', time='9:00 PM')
@@ -77,15 +77,15 @@ while True:
     print("3. Book Tickets")
     print("4. Exit")
 
-    output = input("Enter Your Choice : ")
+    opt = input("Enter Your Choice : ")
 
-    if output == '1':
+    if opt == '1':
         for hall in cinema.hall_list:
             print(f"Hall No : {hall.Hall_hallNo}")
             hall.view_show_list()
         print()
 
-    elif output == '2':
+    elif opt == '2':
         show_id = input("Enter Show ID : ")
         hall = None
         for i in cinema.hall_list:
@@ -99,7 +99,7 @@ while True:
         else:
             print("Show Not Found!")
 
-    elif output == '3':
+    elif opt == '3':
         show_id = input("Enter Show ID : ")
         cnt = int(input("Enter The Number Of Seats To Book : "))
         booking_seat = []
@@ -117,7 +117,7 @@ while True:
 
         if hall:
             hall.book_seats(show_id, booking_seat)
-            print("Booking Successfully!")
+            print("Booking Successfully!!!")
 
         else:
             print("Show Not Found!")
